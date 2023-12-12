@@ -69,7 +69,8 @@ def filter_students(request, dept_id, grade_level_id, section_id):
                           'address':student.address,
                           'phone':student.phone,
                           'gender':student.gender,
-                          'birthdate':student.birthdate
+                          'birthdate':student.birthdate,
+                          'lrn': student.lrn
                           } for student in students]
         grade_level_data = {'id':grade_level.gradelvl_id, 'name':grade_level.gradelvl}
         section_data = {'id':section.section_id, 'name': section.section_name}
