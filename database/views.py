@@ -160,7 +160,8 @@ def filter_teachers(request, grade_level_id):
                           'address':teacher.address,
                           'phone':teacher.phone,
                           'gender':teacher.gender,
-                          'birthdate':teacher.birthdate
+                          'birthdate':teacher.birthdate,
+                          'active': teacher.active
                           } for teacher in teachers]
         grade_level_data = {'id':grade_level.gradelvl_id, 'name':grade_level.gradelvl}
 
