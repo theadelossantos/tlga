@@ -52,7 +52,8 @@ class Teacher(models.Model):
     phone = models.CharField(max_length=25)
     gender = models.CharField(max_length=10)
     birthdate = models.DateField(default=timezone.now)
-    
+    active = models.BooleanField(default=True)
+
     def __str__(self):
         return str(self.teacher_id)
 

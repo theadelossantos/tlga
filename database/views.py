@@ -277,15 +277,14 @@ class EditTeacherView(APIView):
 @api_view(['DELETE'])
 def delete_teacher(request, teacher_id):
     try:
-        teacher = Teacher.objects.get(teacher_id = teacher_id)
+        teacher = Teacher.objects.get(pk=teacher_id)
+        new_status = not teacher.active 
+        teacher.active = new_status
+        teacher.save()
+        message = 'Teacher activated successfully' if new_status else 'Teacher deactivated successfully'
+        return Response({"message": message})
     except Teacher.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    
-    if request.method == 'DELETE':
-        user = teacher.user
-        user.delete()
-        teacher.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=404)
 
 
 class AdminRegistrationView(APIView):
