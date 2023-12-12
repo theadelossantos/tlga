@@ -33,7 +33,7 @@ class Student(models.Model):
     phone = models.CharField(max_length=25)
     gender = models.CharField(max_length=10)
     birthdate = models.DateField(default=timezone.now)
-    lrn = models.CharField(max_length=50)
+    lrn = models.CharField(max_length=50, blank=True, null=True)
     
     def __str__(self):
         return f"{self.fname} {self.lname}"
